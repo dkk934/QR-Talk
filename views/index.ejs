@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="centered-div">
+
+    <form action="/qr" method="post">
+      <div class="wave-group">
+        <input required="" name="text" type="text" class="input">
+        <span class="bar"></span>
+        <label class="label">
+          <span class="label-char" style="--index: 0">N</span>
+          <span class="label-char" style="--index: 1">a</span>
+          <span class="label-char" style="--index: 2">m</span>
+          <span class="label-char" style="--index: 3">e</span>
+        </label>
+      </div>
+
+      <button class="btn" type="submit"> Covert </button>
+    </form>
+
+    <img src="data:image/png;base64,<%= locals.image %>" alt="qr-code" />
+
+    <p class="mt-5 mb-3 text-body-secondary">© dk </p>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
