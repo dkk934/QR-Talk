@@ -20,11 +20,15 @@
 
     <img src="data:image/png;base64,<%= locals.image %>" alt="qr-code" />
 
-    <p class="mt-5 mb-3 text-body-secondary">© dk </p>
+    <!-- <p class="mt-5 mb-3 text-body-secondary">© dk </p> -->
+    <hr>
+    <video id="qr-video" width="300" height="300"></video>
+    <p id="res">_____________</p>
+    <button type="button" id="play">Sacn QR</button>
   </div>
 </div>
 
 
-<%- include('sacn.ejs') %>
+<%- include('scan.ejs') %>
 
 <%- include('partials/footer') %>
