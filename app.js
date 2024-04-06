@@ -23,5 +23,5 @@ app.post("/qr",(req,res)=>{
 })
 
 app.listen(port,()=>{
-    console.log(`App listen on: http://localhost:${port}`);
+    console.log(`App listen on: ${port}`);
 })
