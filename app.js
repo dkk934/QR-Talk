@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(body.urlencoded({ extended: true }))
 app.use(exp.static("public"));
+
 app.get("/",(req,res)=>{
   res.render('index.ejs')
 })
