@@ -25,11 +25,68 @@
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        console.log('Found QR code', code.data);
-        res.innerHTML= `${code.data}`;
+        // console.log('Found QR code', code.data);
+        let data = decodeMorse(code.data)
+        res.innerHTML= `${data}`;
       }
     }
       requestAnimationFrame(tick);
   }
+  
+  function decodeMorse(morseCode) {
+    var morseCodeMap = {
+        '/':' ',
+        '.-':'A',
+        '-...': 'B',
+        '-.-.': 'C',
+        '-..': 'D',
+        '.': 'E',
+        '..-.': 'F',
+        '--.': 'G', 
+        '....': 'H', 
+        '..': 'I', 
+        '.---': 'J',
+        '-.-': 'K', 
+        '.-..': 'L', 
+        '--': 'M', 
+        '-.': 'N', 
+        '---': 'O',
+        '.--.': 'P', 
+        '--.-': 'Q', 
+        '.-.': 'R', 
+        '...': 'S', 
+        '-': 'T',
+        '..-': 'U', 
+        '...-': 'V', 
+        '.--': 'W', 
+        '-..-': 'X', 
+        '-.--': 'Y',
+        '--..': 'Z', 
+        '-----': '0', 
+        '.----': '1', 
+        '..---': '2', 
+        '...--': '3',
+        '....-': '4', 
+        '.....': '5', 
+        '-....': '6', 
+        '--...': '7', 
+        '---..': '8',
+        '----.': '9',
+    '!': '!',
+    '@': '@',
+    '#': '#',
+    '$': '$',
+    '%': '%',
+    '^': '^',
+    '&': '&',
+    '*': '*'
+    };
+
+    return morseCode.trim().split('   ').map(function(word) {
+        return word.split(' ').map(function(char) {
+            return morseCodeMap[char];
+        }).join(''); 
+    }).join(' ');
+}
 </script>
 
